@@ -5,51 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IvyNotesv2"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="IvyNotes" Height="720" Width="1280">
+        Title="IvyNotes" Height="720" Width="1280" Icon="Resources/Icons/icon.ico">
     <Grid>
-        <Canvas Background="Gray" x:Name="LoadingCanvas" />
+        <Canvas Background="Gray" x:Name="LoadingCanvas" Visibility="Hidden" />
         <DockPanel>
             <Border BorderBrush="Gray" BorderThickness="1">
-                <StackPanel Orientation="Vertical" DockPanel.Dock="Left">
-                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="Home" Click="OnHomeMenuClick">
+                <DockPanel>
+                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="Parameters" Click="OnParametersMenuClick" DockPanel.Dock="Bottom">
                         <Grid>
-                            <Path Data="{StaticResource Home}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" />
+                            <Path Data="{StaticResource Settings}" Stretch="Uniform" Fill="Black" Width="32" Margin="5" />
                         </Grid>
                     </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="FeedingBottle" Click="OnBottleMenuClick">
-                        <Grid>
-                            <Path Data="{StaticResource FeedingBottle}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" RenderTransformOrigin="0.5,0.5" >
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="45"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                            </Path>
-                        </Grid>
-                    </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="Diapers" Click="OnDiapersMenuClick">
-                        <Grid>
-                            <Path Data="{StaticResource Diapers}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" />
-                        </Grid>
-                    </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="Measures" Click="OnMeasureMenuClick">
-                        <Grid>
-                            <Path Data="{StaticResource Measure}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" RenderTransformOrigin="0.5,0.5" >
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="280"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                            </Path>
-                        </Grid>
-                    </Button>
-                </StackPanel>
+                    <Grid DockPanel.Dock="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Button Background="Transparent" BorderBrush="Transparent" x:Name="Home" Click="OnHomeMenuClick">
+                            <Grid>
+                                <Path Data="{StaticResource Home}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" />
+                            </Grid>
+                        </Button>
+                        <Button Background="Transparent" BorderBrush="Transparent" x:Name="FeedingBottle" Click="OnBottleMenuClick" Grid.Row="1">
+                            <Grid>
+                                <Path Data="{StaticResource FeedingBottle}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" RenderTransformOrigin="0.5,0.5" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="45"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Button>
+                        <Button Background="Transparent" BorderBrush="Transparent" x:Name="Diapers" Click="OnDiapersMenuClick" Grid.Row="2">
+                            <Grid>
+                                <Path Data="{StaticResource Diapers}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" />
+                            </Grid>
+                        </Button>
+                        <Button Background="Transparent" BorderBrush="Transparent" x:Name="Measures" Click="OnMeasureMenuClick" Grid.Row="3">
+                            <Grid>
+                                <Path Data="{StaticResource Measure}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" RenderTransformOrigin="0.5,0.5" >
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="280"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </DockPanel>
             </Border>
             <UserControl x:Name="MainContent" />
         </DockPanel>

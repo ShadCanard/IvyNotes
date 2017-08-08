@@ -13,7 +13,7 @@
                     <Path Data="{StaticResource Statistics}" Fill="Black"></Path>
                 </Grid>
             </Button>
-            <ListView x:Name="lvBottles">
+            <ListView x:Name="lvBottles" MouseDoubleClick="EditClick">
                 <ListView.ContextMenu>
                     <ContextMenu>
                         <MenuItem Click="NewClick" Header="Nouveau" />

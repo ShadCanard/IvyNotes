@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IvyNotesv2.Resources.Fragments.Charts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,25 +37,31 @@ namespace IvyNotesv2.Resources.Fragments
 
         private void OnStatisticsClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Bientôt !");
+            MainWindow.INSTANCE.ChangeMainContent(new ChartsMeasure());
         }
 
         private void RemoveClick(object sender, RoutedEventArgs e)
         {
-            if(lvMeasures.SelectedItem != null)
+            if (lvMeasures.SelectedItem != null)
             {
+                Cursor = Cursors.Wait;
                 MainWindow.INSTANCE.ctxMeasures.Measures.Remove((Database.Measure)lvMeasures.SelectedItem);
                 MainWindow.INSTANCE.ctxMeasures.SaveChanges();
                 LoadMeasures();
+                Cursor = Cursors.Arrow;
             }
         }
         private void NewClick(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             MainWindow.INSTANCE.ChangeMainContent(new MeasureElement());
+            Cursor = Cursors.Arrow;
         }
         private void EditClick(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             MainWindow.INSTANCE.ChangeMainContent(new MeasureElement((Database.Measure)lvMeasures.SelectedItem));
+            Cursor = Cursors.Arrow;
         }
     }
 }

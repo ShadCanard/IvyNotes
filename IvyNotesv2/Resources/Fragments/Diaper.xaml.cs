@@ -41,20 +41,26 @@ namespace IvyNotesv2.Resources.Fragments
 
         private void RemoveClick(object sender, RoutedEventArgs e)
         {
-            if(lvDiapers.SelectedItem != null)
+            if (lvDiapers.SelectedItem != null)
             {
-            MainWindow.INSTANCE.ctxDiapers.Diapers.Remove((Database.Diaper)lvDiapers.SelectedItem);
-            MainWindow.INSTANCE.ctxDiapers.SaveChanges();
-            LoadDiapers();
+                Cursor = Cursors.Wait;
+                MainWindow.INSTANCE.ctxDiapers.Diapers.Remove((Database.Diaper)lvDiapers.SelectedItem);
+                MainWindow.INSTANCE.ctxDiapers.SaveChanges();
+                LoadDiapers();
+                Cursor = Cursors.Arrow;
             }
         }
         private void NewClick(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             MainWindow.INSTANCE.ChangeMainContent(new DiaperElement());
+            Cursor = Cursors.Arrow;
         }
         private void EditClick(object sender, RoutedEventArgs e)
         {
+            Cursor = Cursors.Wait;
             MainWindow.INSTANCE.ChangeMainContent(new DiaperElement((Database.Diaper)lvDiapers.SelectedItem));
+            Cursor = Cursors.Arrow;
         }
     }
 }

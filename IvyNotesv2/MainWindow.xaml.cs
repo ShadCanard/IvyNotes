@@ -39,6 +39,7 @@ namespace IvyNotesv2
             MenuCollection.Add(Diapers);
             MenuCollection.Add(Measures);
             MenuCollection.Add(Home);
+            MenuCollection.Add(Parameters);
             OnHomeMenuClick(Home, new RoutedEventArgs());
         }
 
@@ -149,5 +150,25 @@ namespace IvyNotesv2
             MainContent.Content = control;
         }
 
+        private void OnParametersMenuClick(object sender, RoutedEventArgs e)
+        {
+            Cursor = Cursors.Wait;
+            OnLoading(true);
+            OnMenuClick((Button)sender);
+            UserControl ctrlToLoad = new Settings();
+            bool fragExists = false;
+            foreach (UserControl ctrl in FragmentCollection)
+            {
+                if (ctrl is Settings)
+                {
+                    fragExists = true;
+                    ctrlToLoad = ctrl;
+                }
+            }
+            MainContent.Content = ctrlToLoad;
+            if (!fragExists) FragmentCollection.Add(ctrlToLoad);
+            OnLoading(false);
+            Cursor = Cursors.Arrow;
+        }
     }
 }

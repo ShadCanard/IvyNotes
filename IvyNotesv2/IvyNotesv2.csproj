@@ -48,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icons\icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -98,6 +101,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Database\ClassContext.cs" />
+    <Compile Include="Resources\Fragments\Charts\ChartsBottles.xaml.cs">
+      <DependentUpon>ChartsBottles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Fragments\Charts\ChartsMeasure.xaml.cs">
+      <DependentUpon>ChartsMeasure.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Fragments\Diaper.xaml.cs">
       <DependentUpon>Diaper.xaml</DependentUpon>
     </Compile>
@@ -119,6 +128,9 @@
     <Compile Include="Resources\Fragments\MeasureElement.xaml.cs">
       <DependentUpon>MeasureElement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Fragments\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -132,6 +144,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Resources\Dictionnaries\SVGDictionaries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Fragments\Charts\ChartsBottles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Fragments\Charts\ChartsMeasure.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Fragments\MeasureElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Fragments\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,7 +244,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>measures.mdf</DependentUpon>
     </Content>
-    <Content Include="Resources\Drawable\menuIcon.svg" />
+    <Resource Include="Resources\Icons\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
