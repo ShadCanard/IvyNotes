@@ -1,0 +1,57 @@
+﻿<Window x:Class="IvyNotesv2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IvyNotesv2"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="IvyNotes" Height="720" Width="1280">
+    <Grid>
+        <Canvas Background="Gray" x:Name="LoadingCanvas" />
+        <DockPanel>
+            <Border BorderBrush="Gray" BorderThickness="1">
+                <StackPanel Orientation="Vertical" DockPanel.Dock="Left">
+                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="Home" Click="OnHomeMenuClick">
+                        <Grid>
+                            <Path Data="{StaticResource Home}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" />
+                        </Grid>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="FeedingBottle" Click="OnBottleMenuClick">
+                        <Grid>
+                            <Path Data="{StaticResource FeedingBottle}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="45"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="Diapers" Click="OnDiapersMenuClick">
+                        <Grid>
+                            <Path Data="{StaticResource Diapers}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" />
+                        </Grid>
+                    </Button>
+                    <Button Background="Transparent" BorderBrush="Transparent" x:Name="Measures" Click="OnMeasureMenuClick">
+                        <Grid>
+                            <Path Data="{StaticResource Measure}" Stretch="Uniform" Fill="Black" Width="32" Height="32" Margin="5" RenderTransformOrigin="0.5,0.5" >
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="280"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <UserControl x:Name="MainContent" />
+        </DockPanel>
+    </Grid>
+</Window>
