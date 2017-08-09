@@ -28,11 +28,16 @@ namespace IvyNotesv2.Resources.Fragments
             DatePick.SelectedDate = DateTime.Now;
             HourPick.Time = new RoyT.TimePicker.DigitalTime(DateTime.Now.Hour, DateTime.Now.Minute);
             isEditing = false;
+            HourPick.MinTime = new RoyT.TimePicker.DigitalTime(00, 00);
+            HourPick.MaxTime = new RoyT.TimePicker.DigitalTime(23, 45);
         }
 
         public DiaperElement(Database.Diaper diaperIn)
         {
             InitializeComponent();
+            HourPick.MinTime = new RoyT.TimePicker.DigitalTime(00, 00);
+            HourPick.MaxTime = new RoyT.TimePicker.DigitalTime(23, 45);
+
             isEditing = true;
             diaper = diaperIn;
             DatePick.SelectedDate = new DateTime(diaper.DiaperDT.Year, diaper.DiaperDT.Month, diaper.DiaperDT.Day);

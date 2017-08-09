@@ -29,6 +29,9 @@ namespace IvyNotesv2.Resources.Fragments
             IsEditing = false;
             DatePick.SelectedDate = DateTime.Now;
             HourPick.Time = new RoyT.TimePicker.DigitalTime(DateTime.Now.Hour, DateTime.Now.Minute);
+            HourPick.MinTime = new RoyT.TimePicker.DigitalTime(00, 00);
+            HourPick.MaxTime = new RoyT.TimePicker.DigitalTime(23, 45);
+
         }
 
         public MeasureElement(Database.Measure measureIn)
@@ -41,6 +44,9 @@ namespace IvyNotesv2.Resources.Fragments
             Comments.Text = measure.MeasureComments;
             DatePick.SelectedDate = new DateTime(measure.MeasureDT.Year, measure.MeasureDT.Month, measure.MeasureDT.Day);
             HourPick.Time = new RoyT.TimePicker.DigitalTime(measure.MeasureDT.Hour, measure.MeasureDT.Minute);
+            HourPick.MinTime = new RoyT.TimePicker.DigitalTime(00, 00);
+            HourPick.MaxTime = new RoyT.TimePicker.DigitalTime(23, 45);
+
         }
 
         private bool isInputOk(string text)

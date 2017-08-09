@@ -32,6 +32,9 @@ namespace IvyNotesv2.Resources.Fragments
             isEditing = false;
             DatePick.SelectedDate = DateTime.Now;
             HourPick.Time = new RoyT.TimePicker.DigitalTime(DateTime.Now.Hour, DateTime.Now.Minute);
+            HourPick.MinTime = new RoyT.TimePicker.DigitalTime(00, 00);
+            HourPick.MaxTime = new RoyT.TimePicker.DigitalTime(23, 45);
+
         }
 
         private void PopulateComboBox()
@@ -46,6 +49,8 @@ namespace IvyNotesv2.Resources.Fragments
         {
             InitializeComponent();
             PopulateComboBox();
+            HourPick.MinTime = new RoyT.TimePicker.DigitalTime(00, 00);
+            HourPick.MaxTime = new RoyT.TimePicker.DigitalTime(23, 45);
             isEditing = true;
             bottle = bottleIn;
             DatePick.SelectedDate = new DateTime(bottle.FeedingBottleDT.Year, bottle.FeedingBottleDT.Month, bottle.FeedingBottleDT.Day);
