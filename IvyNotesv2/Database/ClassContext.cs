@@ -1,29 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IvyNotesv2.Database
 {
     public class Measure
     {
         public int MeasureID { get; set; }
-        public DateTime MeasureDT { get;set;}
+        public DateTime MeasureDT { get; set; }
         public string MeasureComments { get; set; }
         public int MeasureValueHeight { get; set; }
         public int MeasureValueWeight { get; set; }
     }
 
-    public class MeasureContext : DbContext
+    public class IvyContext : DbContext
     {
-        public MeasureContext() : base("Resources/Databases/measures.mdf")
+        public IvyContext() : base()
         {
 
         }
 
         public DbSet<Measure> Measures { get; set; }
+        public DbSet<Diaper> Diapers { get; set; }
+        public DbSet<FeedingBottle> FeedingBottles { get; set; }
     }
 
     public class FeedingBottle
@@ -36,15 +34,6 @@ namespace IvyNotesv2.Database
 
     }
 
-    public class FeedingBottleContext : DbContext
-    {
-        public FeedingBottleContext() : base("Resources/Databases/feeding.mdf")
-        {
-
-        }
-        public DbSet<FeedingBottle> FeedingBottles { get; set; }
-    }
-
     public class Diaper
     {
         public int DiaperID { get; set; }
@@ -52,14 +41,5 @@ namespace IvyNotesv2.Database
         public bool DiaperHasPoop { get; set; }
         public bool DiaperHasPee { get; set; }
         public string DiaperComments { get; set; }
-    }
-
-    public class DiaperContext : DbContext
-    {
-        public DiaperContext() : base("Resources/Databases/diapers.mdf")
-        {
-
-        }
-        public DbSet<Diaper> Diapers { get; set; }
     }
 }

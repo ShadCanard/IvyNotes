@@ -1,19 +1,10 @@
 ﻿using IvyNotesv2.Database;
 using IvyNotesv2.Resources.Fragments;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace IvyNotesv2
 {
@@ -25,9 +16,9 @@ namespace IvyNotesv2
         public static MainWindow INSTANCE;
         public List<Button> MenuCollection = new List<Button>();
         public List<UserControl> FragmentCollection = new List<UserControl>();
-        public DiaperContext ctxDiapers = new DiaperContext();
-        public FeedingBottleContext ctxBottles = new FeedingBottleContext();
-        public MeasureContext ctxMeasures = new MeasureContext();
+        public IvyContext ctxDiapers = new IvyContext();
+        public IvyContext ctxBottles = new IvyContext();
+        public IvyContext ctxMeasures = new IvyContext();
 
         public MainWindow()
         {
@@ -46,7 +37,6 @@ namespace IvyNotesv2
         private void OnBottleMenuClick(object sender, RoutedEventArgs e)
         {
             Cursor = Cursors.Wait;
-            OnLoading(true);
             OnMenuClick((Button)sender);
             UserControl ctrlToLoad = new Resources.Fragments.FeedingBottle();
             bool fragExists = false;
@@ -60,7 +50,6 @@ namespace IvyNotesv2
             }
             MainContent.Content = ctrlToLoad;
             if (!fragExists) FragmentCollection.Add(ctrlToLoad);
-            OnLoading(false);
             Cursor = Cursors.Arrow;
         }
 
@@ -68,7 +57,6 @@ namespace IvyNotesv2
         {
             Cursor = Cursors.Wait;
             OnMenuClick((Button)sender);
-            OnLoading(true);
             UserControl ctrlToLoad = new Resources.Fragments.Diaper();
             bool fragExists = false;
             foreach (UserControl ctrl in FragmentCollection)
@@ -81,14 +69,12 @@ namespace IvyNotesv2
             }
             MainContent.Content = ctrlToLoad;
             if (!fragExists) FragmentCollection.Add(ctrlToLoad);
-            OnLoading(false);
             Cursor = Cursors.Arrow;
         }
 
         private void OnMeasureMenuClick(object sender, RoutedEventArgs e)
         {
             Cursor = Cursors.Wait;
-            OnLoading(true);
             OnMenuClick((Button)sender);
             UserControl ctrlToLoad = new Resources.Fragments.Measure();
             bool fragExists = false;
@@ -102,7 +88,6 @@ namespace IvyNotesv2
             }
             MainContent.Content = ctrlToLoad;
             if (!fragExists) FragmentCollection.Add(ctrlToLoad);
-            OnLoading(false);
             Cursor = Cursors.Arrow;
         }
 
@@ -122,7 +107,6 @@ namespace IvyNotesv2
         private void OnHomeMenuClick(object sender, RoutedEventArgs e)
         {
             Cursor = Cursors.Wait;
-            OnLoading(true);
             OnMenuClick((Button)sender);
             UserControl ctrlToLoad = new Resources.Fragments.Main();
             bool fragExists = false;
@@ -136,15 +120,9 @@ namespace IvyNotesv2
             }
             MainContent.Content = ctrlToLoad;
             if (!fragExists) FragmentCollection.Add(ctrlToLoad);
-            OnLoading(false);
             Cursor = Cursors.Arrow;
         }
-
-        public void OnLoading(bool isLoading)
-        {
-            LoadingCanvas.Visibility = (isLoading ? Visibility.Visible : Visibility.Hidden);
-        }
-
+        
         public void ChangeMainContent(UserControl control)
         {
             MainContent.Content = control;
@@ -153,7 +131,6 @@ namespace IvyNotesv2
         private void OnParametersMenuClick(object sender, RoutedEventArgs e)
         {
             Cursor = Cursors.Wait;
-            OnLoading(true);
             OnMenuClick((Button)sender);
             UserControl ctrlToLoad = new Settings();
             bool fragExists = false;
@@ -167,7 +144,6 @@ namespace IvyNotesv2
             }
             MainContent.Content = ctrlToLoad;
             if (!fragExists) FragmentCollection.Add(ctrlToLoad);
-            OnLoading(false);
             Cursor = Cursors.Arrow;
         }
     }

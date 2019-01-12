@@ -101,6 +101,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Database\ClassContext.cs" />
+    <Compile Include="Migrations\201901122033194_InitialMigration.cs" />
+    <Compile Include="Migrations\201901122033194_InitialMigration.Designer.cs">
+      <DependentUpon>201901122033194_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Resources\Fragments\Charts\ChartsBottles.xaml.cs">
       <DependentUpon>ChartsBottles.xaml</DependentUpon>
     </Compile>
@@ -202,6 +207,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201901122033194_InitialMigration.resx">
+      <DependentUpon>201901122033194_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -223,28 +231,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Databases\diapers.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Databases\diapers_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>diapers.mdf</DependentUpon>
-    </Content>
-    <Content Include="Resources\Databases\feeding.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Databases\feeding_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>feeding.mdf</DependentUpon>
-    </Content>
-    <Content Include="Resources\Databases\measures.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Databases\measures_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>measures.mdf</DependentUpon>
-    </Content>
     <Resource Include="Resources\Icons\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Databases\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
